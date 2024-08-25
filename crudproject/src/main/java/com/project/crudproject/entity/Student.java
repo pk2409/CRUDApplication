@@ -1,16 +1,17 @@
 package com.project.crudproject.entity;
 
 import jakarta.persistence.*;
-import org.springframework.data.annotation.Id;
+
 
 @Entity
 @Table(name="student")
 public class Student {
 
     //define fields
-    @Id
+
     @GeneratedValue(strategy = GenerationType.IDENTITY) //IDENTITY means that mysql will auto-increment it
     @Column(name="id")
+    @Id
     private int id;
 
 
@@ -23,14 +24,17 @@ public class Student {
     @Column(name="email")
     private String email;
 
+    public Student(){}
 
+
+    //define constructors
     public Student(String firstname, String lastname, String email) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.email = email;
     }
 
-    //define constructors
+
 
 
 
